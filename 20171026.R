@@ -11,8 +11,6 @@ dev.off()
 
 
 
-
-
 pdf("aaa.pdf")
 pheatmap(matrix,cluster_rows=F,cluster_cols=F,display_numbers=T,fontsize_number = 18,   face_number="bold") 
 dev.off()
