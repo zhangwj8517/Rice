@@ -1,5 +1,5 @@
 rm(list=ls())
-WORK_SPACE="E:/Zhenling_论文数据计算/2016_Rice/20171022_rice_data/1.原始数据文件reads_counts/"
+WORK_SPACE="E:/Zhenling_璁烘枃鏁版嵁璁＄畻/2016_Rice/20171022_rice_data/1.鍘熷鏁版嵁鏂囦欢reads_counts/"
 setwd(WORK_SPACE)
 library(gsubfn)
 library(sqldf)
@@ -12,7 +12,7 @@ K4K27=c("k4","k27")
 ROOTLEAF=c("root","leaf")
 WTJ=c("WTJ7","WTJ12","WTJ14","WTJ24","WTJ34","WTJ37")
 
-SOURCE1="1.原始reads的snpsplit1016_counts分布/"
+SOURCE1="1.鍘熷reads鐨剆npsplit1016_counts鍒嗗竷/"
 SOURCE2="2.marker_edgeR/"
 STEP1_PATH="STEP1/"
 STEP2_PATH="STEP2/"
@@ -54,7 +54,7 @@ nrow(SOURCE_FILTER_K4_LEAF_N9_DATA );
 nrow(SOURCE_FILTER_K4_ROOT_9N_DATA );
 nrow(SOURCE_FILTER_K4_ROOT_N9_DATA );
 
-###　uniq_macs_*_DATA join (SOURCE_FILTER_*_9N_DATA union SOURCE_FILTER_*_N9_DATA)
+###銆�uniq_macs_*_DATA join (SOURCE_FILTER_*_9N_DATA union SOURCE_FILTER_*_N9_DATA)
 
 filter_uniq_macs_k27_leaf_DATA=sqldf(" select A.*  from uniq_macs_k27_leaf_DATA A,  (select peak from SOURCE_FILTER_K27_LEAF_9N_DATA union select peak from SOURCE_FILTER_K27_LEAF_N9_DATA) B where a.peak = b.peak" )
 filter_uniq_macs_k27_root_DATA=sqldf(" select A.*  from uniq_macs_k27_root_DATA A,  (select peak from SOURCE_FILTER_K27_ROOT_9N_DATA union select peak from SOURCE_FILTER_K27_ROOT_N9_DATA) B where a.peak = b.peak" )
